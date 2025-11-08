@@ -1,0 +1,85 @@
+### Health Check
+GET http://localhost:3000/healthcheck
+
+### Create Wardrobe Item
+POST http://localhost:3000/wardrobe
+Content-Type: application/json
+
+{
+  "name": "Blue Denim Jeans",
+  "cloth_type": "jeans",
+  "fabric": "denim",
+  "color": "blue",
+  "size": "32",
+  "brand": "Levi's",
+  "purchase_date": "2024-01-15",
+  "purchase_price": 89.99,
+  "condition": "good",
+  "season": "all-season",
+  "occasion": "casual",
+  "location": "outdoor",
+  "gsm": 350,
+  "notes": "Comfortable everyday jeans"
+}
+
+### Get All Wardrobe Items
+GET http://localhost:3000/wardrobe
+
+### Get Wardrobe Item by ID
+GET http://localhost:3000/wardrobe/1
+
+### Update Wardrobe Item
+PUT http://localhost:3000/wardrobe/1
+Content-Type: application/json
+
+{
+  "condition": "excellent",
+  "notes": "Updated notes"
+}
+
+### Delete Wardrobe Item
+DELETE http://localhost:3000/wardrobe/1
+
+### Create Collection
+POST http://localhost:3000/collections
+Content-Type: application/json
+
+{
+  "name": "Summer Collection",
+  "description": "Light and comfortable summer outfits",
+  "item_ids": [1, 2, 3]
+}
+
+### Get All Collections
+GET http://localhost:3000/collections
+
+### Get Collection by ID
+GET http://localhost:3000/collections/1
+
+### Update Collection
+PUT http://localhost:3000/collections/1
+Content-Type: application/json
+
+{
+  "name": "Updated Summer Collection",
+  "item_ids": [1, 2, 3, 4]
+}
+
+### Delete Collection
+DELETE http://localhost:3000/collections/1
+
+### Get Outfit Recommendation
+POST http://localhost:3000/recommendations/outfit
+Content-Type: application/json
+
+{
+  "occasion": "casual",
+  "location": "outdoor",
+  "season": "summer",
+  "weather": "sunny",
+  "color_preference": "light colors"
+}
+
+### Get Purchase Recommendations
+GET http://localhost:3000/recommendations/purchase
+

@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model WardrobeItem {
+  id            Int      @id @default(autoincrement())
+  name          String
+  clothType     String   @map("cloth_type")
+  gsm           Int?
+  fabric        String?
+  color         String?
+  size          String?
+  brand         String?
+  purchaseDate  String?  @map("purchase_date")
+  purchasePrice Float?   @map("purchase_price")
+  condition     String?
+  season        String?
+  occasion      String?
+  location      String?
+  notes         String?
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@map("wardrobe_items")
+}
+
+model WardrobeCollection {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  itemIds     String?  @map("item_ids")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("wardrobe_collections")
+}
+
